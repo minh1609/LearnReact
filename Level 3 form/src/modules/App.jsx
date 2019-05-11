@@ -6,7 +6,7 @@ import ImageList from "./ImageList";
 class App extends Component {
     state = { images: [] };
 
-    //asynce syntax to wait for axios finish get data from server
+    //async syntax to wait for axios finish get data from server
     onSearchSubmit = async searchTerm => {
         const response = await unsplash.get("/search/photos", {
             params: { query: searchTerm }
