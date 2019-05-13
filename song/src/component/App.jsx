@@ -1,9 +1,17 @@
 import React, { Component } from "react";
 
+import SongList from "./SongList";
+
 class App extends Component {
     state = {};
     render() {
-        return <h1>Hello</h1>;
+        return (
+            <div className="ui container grid">
+                <div className="column eight wide">
+                    <SongList />;
+                </div>
+            </div>
+        );
     }
 }
 

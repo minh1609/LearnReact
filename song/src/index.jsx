@@ -1,5 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./component/App";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
 
-ReactDOM.render(<App />, document.querySelector("#root"));
+import App from "./component/App";
+import reducer from "./reducers";
+
+//wrap Provider around App, make sure every component connect to store
+ReactDOM.render(
+    <Provider store={createStore(reducer)}>
+        <App />
+    </Provider>,
+    document.querySelector("#root")
+);
