@@ -18,6 +18,7 @@ const selectedSongReducer = (selectedSong = null, action) => {
 
 //combine reducer will combine all reducer together, put all state together
 export default combineReducers({
+    // this 2 line of code is state of project
     songs: songReducer,
     selectedSong: selectedSongReducer
 });
