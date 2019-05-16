@@ -31,8 +31,7 @@ class SongDetail extends Component {
     }
 }
 
-//by convention, this function get sate from store, put it in the
-//prop of this component
+//by convention, this function get sate from store, then set state to prop
 //re run when state change
 const mapStatetoProps = state => {
     console.log(state);
