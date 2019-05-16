@@ -10,9 +10,9 @@ class SongList extends Component {
     }
 }
 
-//by convention, this function get sate from store, put it in the
+//by convention, this function get state from store, put it in the
 //prop of this component
-//re run when state change
+//re run when state(from store) change
 const mapStatetoProps = state => {
     console.log(state);
     return {
