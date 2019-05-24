@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchPosts } from "../actions";
+import { fetchPosts, fetchPostAndUser } from "../actions";
+
+import UserHeader from "./UserHeader";
 
 class PostList extends Component {
     //fetch data, store in reducer
     componentDidMount() {
         //class doennt hold any state, all state is stored in combineReducer
-        this.props.fetchPosts();
+        this.props.fetchPostAndUser();
     }
 
     renderList() {
@@ -20,6 +22,9 @@ class PostList extends Component {
                         <div className="description">
                             <h2>{post.title}</h2>
                             <p>{post.body}</p>
+                            <div>
+                                <UserHeader userID={post.userId} />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -36,7 +41,7 @@ class PostList extends Component {
 
 //this component will have 1 props is posts:...
 
-//get state from reducer, convert it to this component props
+//pull state from reducer, convert it to this component props
 const mapStateToProps = state => {
     return {
         posts: state.posts
@@ -45,6 +50,6 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    //fetchPost is props of this component
-    { fetchPosts: fetchPosts }
+    //fetchPostAndUser is prop of this function is props of this component
+    { fetchPostAndUser: fetchPostAndUser }
 )(PostList);
