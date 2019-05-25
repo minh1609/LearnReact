@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, NavLink } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 
 import StreamCreate from "./streams/StreamCreate";
 import StreamEdit from "./streams/StreamEdit";
@@ -21,7 +21,7 @@ class App extends Component {
                         {/* exact: only show component if path is EXACTLY "/" */}
                         <Route path="/" exact component={StreamList} />
                         <Route
-                            path="/streams/new"
+                            path="/streams/create"
                             exact
                             component={StreamCreate}
                         />
