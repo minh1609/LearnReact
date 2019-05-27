@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
+import { connect } from "react-redux";
+import { createStream } from "../../actions";
 
 class StreamCreate extends Component {
     renderError(meta) {
@@ -25,10 +27,10 @@ class StreamCreate extends Component {
         );
     };
 
-    // form value contain value from Field
+    // formValue contain value from Field
     //{title:"  ", description: "  "}
     onSubmit = formValue => {
-        console.log(formValue);
+        this.props.createStream(formValue);
     };
 
     render() {
@@ -67,8 +69,25 @@ const validate = formValue => {
     return error;
 };
 
-export default reduxForm({
-    //form and name of form
+const mapStatetoProps = () => {};
+
+//connect redux form only
+// export default reduxForm({
+//     //form and name of form
+//     form: "streamCreate",
+//     validate
+// })(StreamCreate);
+
+//connect redux action and redux form
+
+const formWrapped = reduxForm({
     form: "streamCreate",
     validate
 })(StreamCreate);
+
+export default connect(
+    //first arguement: function
+    mapStatetoProps,
+    //second arg: object contain action creator
+    { createStream }
+)(formWrapped);
