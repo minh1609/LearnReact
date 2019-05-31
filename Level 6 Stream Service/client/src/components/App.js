@@ -21,7 +21,7 @@ class App extends Component {
                         {/* exact: only show component if path is EXACTLY "/" */}
                         <Route path="/" exact component={StreamList} />
                         <Route
-                            path="/streams/create"
+                            path="/streams/new"
                             exact
                             component={StreamCreate}
                         />
