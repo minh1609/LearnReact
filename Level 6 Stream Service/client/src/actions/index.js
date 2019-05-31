@@ -1,5 +1,7 @@
 import stream from "../apis/stream";
 
+import history from "../history";
+
 export const signIn = userId => {
     return {
         type: "SIGN_IN",
@@ -18,6 +20,9 @@ export const createStream = formValues => async (dispatch, getState) => {
 
     const response = await stream.post("/stream", { ...formValues, userId });
     dispatch({ type: "CREATE_STREAM", payload: response.data });
+
+    //navigate to home if success
+    history.push("/");
 };
 
 export const fetchStreams = () => async dispatch => {
