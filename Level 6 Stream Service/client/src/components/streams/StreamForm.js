@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
 
+//streamForm is wrapped in redux form
 class StreamForm extends Component {
     renderError(meta) {
         if (meta.touched && meta.error) {
@@ -35,6 +36,7 @@ class StreamForm extends Component {
         return (
             // Field will pass label props to component props(it is renderInput is this case)
             //handle submit is a props created by redux form
+            //handleSubmit pass formValue to onSubmit
 
             <form
                 className="ui form error"
@@ -66,17 +68,6 @@ const validate = formValue => {
 
     return error;
 };
-
-const mapStatetoProps = () => {};
-
-//connect redux form only
-// export default reduxForm({
-//     //form and name of form
-//     form: "StreamForm",
-//     validate
-// })(StreamForm);
-
-//connect redux action and redux form
 
 export default reduxForm({
     form: "StreamForm",
