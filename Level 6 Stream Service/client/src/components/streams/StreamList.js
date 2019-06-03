@@ -9,7 +9,7 @@ class StreamList extends Component {
         this.props.fetchStreams();
     }
 
-    //render if user is authenticated
+    //render edit, delete button if user is authenticated
     renderAdmin = stream => {
         if (stream.userId === this.props.currentUserId) {
             return (
@@ -20,12 +20,18 @@ class StreamList extends Component {
                     >
                         Edit
                     </Link>
-                    <Link className="ui button negative">Delete</Link>
+                    <Link
+                        to={`/streams/delete/${stream.id}`}
+                        className="ui button negative"
+                    >
+                        Delete
+                    </Link>
                 </div>
             );
         }
     };
 
+    //render create new stream button if user is signed in
     renderCreate = () => {
         if (this.props.isSignedIn) {
             return (
@@ -45,7 +51,7 @@ class StreamList extends Component {
                     {this.renderAdmin(stream)}
                     <i className="large middle aligned icon camera" />
                     <div className="content">
-                        {stream.title}
+                        <Link to={`/streams/${stream.id}`}>{stream.title}</Link>
                         <div className="description">{stream.description}</div>
                     </div>
                 </div>
